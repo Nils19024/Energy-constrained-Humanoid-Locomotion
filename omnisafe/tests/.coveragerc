@@ -1,0 +1,26 @@
+[run]
+omit =
+    ../omnisafe/version.py
+    ../docs/*
+    ../examples/*
+    ../tutorials/*
+    ../omnisafe/common/control_barrier_function/crabs/*
+    ../omnisafe/envs/classic_control/*
+    ../omnisafe/algorithms/off_policy/crabs.py
+    ../omnisafe/adapter/crabs_adapter.py
+    ../omnisafe/envs/crabs_env.py
+    ../omnisafe/envs/custom_env.py
+    ../omnisafe/envs/safety_isaac_gym_env.py
+    ../omnisafe/utils/isaac_gym_utils.py
+    ../omnisafe/envs/meta_drive_env.py
+    ../omnisafe/evaluator.py
+
+[report]
+exclude_lines =
+    pragma: no cover
+    raise NotImplementedError
+    raise FileNotFoundError
+    class .*\bProtocol\):
+    @(abc\.)?abstractmethod
+    if __name__ == ('__main__'|"__main__"):
+    if TYPE_CHECKING:
