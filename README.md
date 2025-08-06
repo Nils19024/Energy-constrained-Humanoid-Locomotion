@@ -1,4 +1,4 @@
-# Omnisafe/SafetyGym training
+# Omnisafe/SafetyGym:
 
 ## Important files overview
 ```omnisafe/train_velocities.py:``` \
@@ -11,7 +11,7 @@ Defines a modified Humanoid environment based on Gymnasium’s Mujoco Humanoid. 
 These files were adapted to enable detailed logging of costs and velocity metrics during training and evaluation.
 
 ## Installation
-### Create an activate a virtuell environment
+### Create and activate a virtual environment
 ```python3 -m venv OmnisafeEnv``` \
 ```source OmnisafeEnv/bin/activate```
 
@@ -25,7 +25,30 @@ These files were adapted to enable detailed logging of costs and velocity metric
 ### Start training
 ```python3 omnisafe/train_velocities.py```
 
-# IsaacLab/Sim training
+# IsaacLab/Sim:
 
-Instructions here
+## Important files overview
+```IsaacLab/scripts/reinforcement_learning/skrl/train.py``` \
+Script to train an agent. By default, it uses the PPO algorithm, other options are available.
 
+```IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/locomotion/velocity/mdp/rewards.py``` \
+File that defines the reward terms. Use this to add custom reward functions or review what is used.
+
+```IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/locomotion/velocity/config/g1/flat_env_cfg.py``` \
+File containing interesting configurations, like choice of reward functions and weights or the velocity command for training and evaluation.
+
+## Installation
+### Create and activate a virtual environment:
+```cd IsaacLab``` \
+```python3 -m venv IsaacEnv``` \
+```source IsaacEnv/bin/activate``` \
+Ensure that the latest pip version is used:
+```pip install --upgrade pip```
+
+### Install dependencies:
+```pip install torch==2.7.0 torchvision==0.22.0 --index-url https://download.pytorch.org/whl/cu128```
+```pip install 'isaacsim[all,extscache]==4.5.0' --extra-index-url https://pypi.nvidia.com```
+
+### Start training
+```./isaaclab.sh -p scripts/reinforcement_learning/skrl/train.py --task Isaac-Velocity-Flat-G1-v0 --headless --num_envs 4096 --max_iterations 5000```
+Or use the slurm script isaac_training.sh in the IsaacLab folder.
