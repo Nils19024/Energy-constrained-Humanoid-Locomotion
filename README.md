@@ -41,19 +41,33 @@ File containing interesting configurations, like choice of reward functions and 
 ### Create and activate a virtual environment
 
 Note: You need Python 3.10 to run IsaacLab! \
-```cd IsaacLab``` \
 ```python3 -m venv IsaacEnv``` \
-```source IsaacEnv/bin/activate```
+```source IsaacEnv/bin/activate``` \
+```cd IsaacLab```
 
 Ensure that the latest pip version is used: \
 ```pip install --upgrade pip```
 
 ### Install dependencies
 ```pip install torch==2.7.0 torchvision==0.22.0 --index-url https://download.pytorch.org/whl/cu128``` \
-```pip install 'isaacsim[all,extscache]==4.5.0' --extra-index-url https://pypi.nvidia.com```
+```pip install 'isaacsim[all,extscache]==4.5.0' --extra-index-url https://pypi.nvidia.com``` \
+```pip install -e .```
 
 ### Start training
 ```./isaaclab.sh -p scripts/reinforcement_learning/skrl/train.py --task Isaac-Velocity-Flat-G1-v0 --headless --num_envs 4096 --max_iterations 5000``` \
 Or use the slurm script isaac_training.sh in the IsaacLab folder.
 
+To test a trained agent, you can use \
+```srun ./isaaclab.sh -p scripts/reinforcement_learning/skrl/play.py ``` \
+```--headless``` \
+```--video``` \
+```--video_length 400``` \
+```--num_envs 1``` \
+```--task Isaac-Velocity-Flat-G1-v0``` \
+```--checkpoint CHECKPOINT_PATH ``` \
 
+Alternatively, use the slurm script isaac_video.sh. Be sure to specify your checkpoint! \
+They are written to directory IsaacLab/logs/skrl/g1_flat/DATE_ppo_torch/checkpoints/ \
+You can find a few pretrained agents in the directory ```IsaacLab_velocities_no_energy```
+
+# Genesis
