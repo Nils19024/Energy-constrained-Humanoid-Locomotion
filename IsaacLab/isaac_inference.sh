@@ -3,7 +3,7 @@
 #SBATCH --mem=20G
 #SBATCH --cpus-per-task=4
 #SBATCH --gpus=1
-source IsaacEnv/bin/activate
+source ../IsaacEnv/bin/activate
 module load cuda/12.1
 srun ./isaaclab.sh -p scripts/reinforcement_learning/skrl/play.py \
 --headless \
