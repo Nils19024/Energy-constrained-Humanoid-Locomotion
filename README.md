@@ -51,7 +51,7 @@ Ensure that the latest pip version is used: \
 ### Install dependencies
 ```pip install torch==2.7.0 torchvision==0.22.0 --index-url https://download.pytorch.org/whl/cu128``` \
 ```pip install 'isaacsim[all,extscache]==4.5.0' --extra-index-url https://pypi.nvidia.com``` \
-```pip install -e .```
+```./isaaclab.sh --install```
 
 ### Start training
 ```./isaaclab.sh -p scripts/reinforcement_learning/skrl/train.py --task Isaac-Velocity-Flat-G1-v0 --headless --num_envs 4096 --max_iterations 5000``` \
@@ -64,10 +64,11 @@ To test a trained agent, you can use \
 ```--video_length 400``` \
 ```--num_envs 1``` \
 ```--task Isaac-Velocity-Flat-G1-v0``` \
-```--checkpoint CHECKPOINT_PATH ``` \
+```--checkpoint CHECKPOINT_PATH ```
 
 Alternatively, use the slurm script isaac_video.sh. Be sure to specify your checkpoint! \
 They are written to directory IsaacLab/logs/skrl/g1_flat/DATE_ppo_torch/checkpoints/ \
 You can find a few pretrained agents in the directory ```IsaacLab_velocities_no_energy```
 
 # Genesis
+
