@@ -58,17 +58,14 @@ Ensure that the latest pip version is used: \
 Or use the slurm script isaac_training.sh in the IsaacLab folder.
 
 To test a trained agent, you can use \
-```srun ./isaaclab.sh -p scripts/reinforcement_learning/skrl/play.py ``` \
-```--headless``` \
-```--video``` \
-```--video_length 400``` \
-```--num_envs 1``` \
-```--task Isaac-Velocity-Flat-G1-v0``` \
+```srun ./isaaclab.sh -p scripts/reinforcement_learning/skrl/play.py ``` \\\
+```--headless``` \\\
+```--video``` \\\
+```--video_length 400``` \\\
+```--num_envs 1``` \\\
+```--task Isaac-Velocity-Flat-G1-v0``` \\\
 ```--checkpoint CHECKPOINT_PATH ```
 
 Alternatively, use the slurm script isaac_video.sh. Be sure to specify your checkpoint! \
 They are written to directory IsaacLab/logs/skrl/g1_flat/DATE_ppo_torch/checkpoints/ \
 You can find a few pretrained agents in the directory ```IsaacLab_velocities_no_energy```
-
-# Genesis
-
